@@ -1,14 +1,14 @@
-import axios from 'axios-https-proxy-fix';
+import axios from 'axios';
 import Dev from '../models/Dev';
 
-const proxy = {
+/* const proxy = {
     host: 'proxylatam.indra.es',
     port: 8080,
     auth: {
         username: 'plongo',
         password: 'Pkl180894',
     },
-};
+}; */
 
 class DevController {
     async index(req, res) {
@@ -36,8 +36,7 @@ class DevController {
             }
 
             const response = await axios.get(
-                `https://api.github.com/users/${username}`,
-                { proxy }
+                `https://api.github.com/users/${username}`
             );
 
             const { name, bio, avatar_url } = response.data;
